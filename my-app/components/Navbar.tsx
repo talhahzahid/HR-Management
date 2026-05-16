@@ -8,6 +8,9 @@ const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // Mobile burger ke liye state
     const dropdownRef = useRef<HTMLDivElement>(null);
 
+    const user = localStorage.getItem('user')
+    const userData = user ? JSON.parse(user) : null
+
     useEffect(() => {
         const handleClickOutside = (e: MouseEvent) => {
             if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
@@ -22,7 +25,7 @@ const Navbar = () => {
         <header className="h-20 bg-white border-b border-gray-100 flex items-center justify-between px-4 md:px-8 sticky top-0 z-50">
             <div className="flex items-center gap-4">
                 {/* --- HAMBURGER BUTTON (Mobile Only) --- */}
-                <button 
+                <button
                     className="md:hidden p-2 text-gray-600 hover:bg-gray-100 rounded-md"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 >
@@ -68,8 +71,8 @@ const Navbar = () => {
                         {isOpen && (
                             <div className="absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-100 z-9999 py-1">
                                 <div className="px-4 py-3 border-b border-gray-100">
-                                    <p className="text-sm font-bold text-gray-800">Admin Account</p>
-                                    <p className="text-xs text-gray-500 mt-0.5">admin@webhr.com</p>
+                                    <p className="text-sm font-bold text-gray-800">Employee Account</p>
+                                    <p className="text-xs text-gray-500 mt-0.5">{userData?.email || 'alex@gmail.com'}</p>
                                 </div>
                                 <button className="w-full flex items-center gap-2 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition-colors">
                                     <UserCircle size={16} className="text-gray-400" />

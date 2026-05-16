@@ -16,7 +16,7 @@ const FeedCard = () => {
                sm:w-[600px]: Tablet/Desktop par width fix ho jayegi (apne hisab se adjust karein).
                max-w-full: Screen se bahar nahi jayega.
             */}
-            <div className='border w-full sm:w-[600px] rounded-md p-3 bg-white shadow-sm'>
+            <div className='border w-full sm:w-150 rounded-md p-3 bg-white shadow-sm'>
                 <div className='flex justify-between items-start mb-4'>
                     {/* User Info */}
                     <div>
@@ -42,7 +42,7 @@ const FeedCard = () => {
                         <UserRound size={32} className='text-blue-600' />
                     </div>
                     <div className='flex flex-col text-center'>
-                        <span className='font-bold text-lg'>Talha Zahid</span>
+                        <span className='font-bold text-lg'>Umar Shahid</span>
                         <span className='font-semibold text-sm text-gray-600'>Associate Software Engineer</span>
                     </div>
                 </div>

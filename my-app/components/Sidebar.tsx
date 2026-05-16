@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const menuItems = [
-    { key: 'dashboard', label: "Dashboard", href: "/", icon: <LayoutDashboard size={20} /> },
+    { key: 'dashboard', label: "Dashboard", href: "/pages/Dashboard", icon: <LayoutDashboard size={20} /> },
     { key: 'attendance', label: "Attendance", href: "/pages/Attendance", icon: <ChartArea size={20} /> },
     { key: 'leaves', label: "Leaves", href: "/pages/Leave", icon: <Leaf size={20} /> }
 ];
@@ -64,7 +64,7 @@ const Sidebar = () => {
                     </nav>
 
                     {/* Bottom User Info (Optional) */}
-                    <div className="border-t border-blue-600 pt-4 mt-auto">
+                    {/* <div className="border-t border-blue-600 pt-4 mt-auto">
                         <div className="flex items-center gap-3 px-2">
                             <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center font-bold">AD</div>
                             <div className="text-sm">
@@ -72,7 +72,7 @@ const Sidebar = () => {
                                 <p className="text-xs text-blue-300 mt-1">Super Admin</p>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </aside>
 

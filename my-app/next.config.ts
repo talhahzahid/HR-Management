@@ -13,6 +13,8 @@ const nextConfig: NextConfig = {
     "http://192.168.18.38:3000/",
     "roundup-slideshow-rendition.ngrok-free.dev",
   ],
+    devIndicators: false,
+
 };
 
 export default nextConfig;
