@@ -33,9 +33,9 @@ const Page = () => {
                     "user",
                     JSON.stringify({
                         id: result.responseData?.userId,
-                        name: result.responseData.name,
-                        email: result.responseData.email,
-                        token: result.responseData.token,
+                        name: result.responseData?.name,
+                        email: result.responseData?.email,
+                        token: result.responseData?.token,
                     })
                 );
 
@@ -49,8 +49,8 @@ const Page = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center  px-4">
-            <div className="w-full max-w-md">
+        <div className="min-h-screen flex items-center justify-center px-4">
+            <div className="w-full max-w-xl">
 
                 {/* Card */}
                 <div className="bg-white shadow-2xl rounded-2xl p-8 border border-gray-100">

@@ -57,6 +57,14 @@ export default function Page() {
       icon: "🏖️",
       bgColor: "bg-emerald-500",
     },
+    {
+      id: 4,
+      title: "Total Leave",
+      used: 0,
+      total: leaveData?.casualLeaves || 0,
+      icon: "🏖️",
+      bgColor: "bg-green-500",
+    },
   ];
 
   return (
@@ -93,7 +101,7 @@ export default function Page() {
           </div>
         ) : (
           /* Cards */
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {leaveStats.map((stat) => (
               <LeaveCard
                 key={stat.id}
