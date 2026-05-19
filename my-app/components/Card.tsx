@@ -21,8 +21,8 @@ const Card = ({
             <div className="flex items-center gap-4">
 
                 {/* Icon */}
-                <div className="bg-green-500 p-3 rounded-full">
-                    <Clock className="w-5 h-5 text-green-700" />
+                <div className="bg-emerald-900 p-3 rounded-full">
+                    <Clock className="w-5 h-5 text-emerald-400" />
                 </div>
 
                 {/* Content */}

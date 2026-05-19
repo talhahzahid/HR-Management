@@ -34,9 +34,7 @@ export default function Page() {
     {
       id: 1,
       title: "Annual Leave",
-      used:
-        (leaveData?.totalLeaves || 0) -
-        (leaveData?.annualLeaves || 0),
+      used: 0,
       total: leaveData?.annualLeaves || 0,
       icon: "📅",
       bgColor: "bg-blue-600",

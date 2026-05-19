@@ -2,10 +2,11 @@
 
 import { useState, useRef, useEffect } from "react";
 import { Bell, Search, User, LogOut, Settings, UserCircle, Menu, X } from "lucide-react";
-
+import { useRouter } from "next/navigation";
 const Navbar = () => {
+    const router = useRouter()
     const [isOpen, setIsOpen] = useState(false);
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // Mobile burger ke liye state
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
 
     const user = localStorage.getItem('user')
@@ -20,6 +21,12 @@ const Navbar = () => {
         document.addEventListener("mousedown", handleClickOutside);
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
+
+
+    const handleLogoutOut = () => {
+        localStorage.removeItem('user')
+        router.replace('/login')
+    }
 
     return (
         <header className="h-20 bg-white border-b border-gray-100 flex items-center justify-between px-4 md:px-8 sticky top-0 z-50">
@@ -83,7 +90,7 @@ const Navbar = () => {
                                     Settings
                                 </button>
                                 <div className="border-t border-gray-100 mt-1 pt-1">
-                                    <button className="w-full flex items-center gap-2 px-4 py-2.5 text-sm text-red-600 hover:bg-red-50 transition-colors">
+                                    <button onClick={handleLogoutOut} className="w-full flex items-center gap-2 px-4 py-2.5 text-sm text-red-600 hover:bg-red-50 transition-colors">
                                         <LogOut size={16} />
                                         Log out
                                     </button>
