@@ -8,9 +8,18 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
+    const [userData, setUserData] = useState<any>(null);
 
-    const user = localStorage.getItem('user')
-    const userData = user ? JSON.parse(user) : null
+
+    useEffect(() => {
+        const user = localStorage.getItem("user");
+        if (user) {
+            setUserData(JSON.parse(user));
+        }
+    }, []);
+
+    // const user = localStorage.getItem('user')
+    // const userData = user ? JSON.parse(user) : null
 
     useEffect(() => {
         const handleClickOutside = (e: MouseEvent) => {

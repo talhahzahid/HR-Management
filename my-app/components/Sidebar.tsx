@@ -1,13 +1,14 @@
 "use client"
 import React, { useState } from 'react';
-import { LayoutDashboard, ChartArea, Leaf, Menu, X, Search, Bell } from 'lucide-react';
+import { LayoutDashboard, ChartArea, Leaf, Menu, X, Search, Bell, NotepadText } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const menuItems = [
     { key: 'dashboard', label: "Dashboard", href: "/pages/Dashboard", icon: <LayoutDashboard size={20} /> },
     { key: 'attendance', label: "Attendance", href: "/pages/Attendance", icon: <ChartArea size={20} /> },
-    { key: 'leaves', label: "Leaves", href: "/pages/Leave", icon: <Leaf size={20} /> }
+    { key: 'leaves', label: "Leaves", href: "/pages/Leave", icon: <Leaf size={20} /> },
+    { key: 'leaves-status', label: "Leaves Status", href: "/pages/leaves-status", icon: <NotepadText size={20} /> }
 ];
 
 const Sidebar = () => {
@@ -26,7 +27,7 @@ const Sidebar = () => {
 
             {/* Sidebar Desktop & Mobile */}
             <aside className={`
-                fixed inset-y-0 left-0 z-40 w-40 bg-blue-700 text-white transition-transform duration-300 ease-in-out
+                fixed inset-y-0 left-0 z-40 w-41 bg-blue-700 text-white transition-transform duration-300 ease-in-out
                 ${isMobileOpen ? 'translate-x-0' : '-translate-x-full'} 
                 md:translate-x-0 md:static md:inset-0
             `}>

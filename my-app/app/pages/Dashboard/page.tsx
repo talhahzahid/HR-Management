@@ -318,11 +318,11 @@ export default function Page() {
 
             <div className="space-y-2">
               <h2 className="text-2xl md:text-3xl font-medium tracking-tight">
-                {userData?.name || "Talha Zahid"}
+                {userData?.name || "Umar Shahid"}
               </h2>
 
               <div className="bg-blue-600 text-[10px] uppercase tracking-widest font-bold px-3 py-1 rounded-full inline-block">
-                Software Engineer
+                {userData?.role || 'Software Engineer'}
               </div>
 
               <div className="flex flex-col items-center md:items-start gap-2 mt-2 text-sm text-gray-300">

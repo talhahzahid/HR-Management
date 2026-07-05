@@ -8,6 +8,7 @@ interface LoginBody {
 
 interface LoginResponse {
   code: "AMS_SUCCESS_00";
+  message: String;
   responseData: {
     name: string;
     email: string;

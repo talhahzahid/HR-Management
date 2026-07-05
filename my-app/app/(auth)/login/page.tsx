@@ -6,6 +6,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { login } from "@/app/api/auth/user";
 import { Loader2 } from "lucide-react";
+import { toast } from "sonner";
 
 // Zod Schema
 const loginSchema = z.object({
@@ -27,8 +28,8 @@ const Page = () => {
     const onSubmit = async (data: LoginFormData) => {
         try {
             const result = await login(data);
-
             if (result?.code === "AMS_SUCCESS_00") {
+                toast.success(result?.message || 'Login Successfully')
                 localStorage.setItem(
                     "user",
                     JSON.stringify({
@@ -44,6 +45,7 @@ const Page = () => {
                 }, 800);
             }
         } catch (error: any) {
+            toast.success(error.message)
             console.log("Error:", error.status, error.message, error.data);
         }
     };
