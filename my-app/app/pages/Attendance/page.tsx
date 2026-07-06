@@ -14,13 +14,17 @@ const page = () => {
   const userData = localStorage.getItem('user')
   const user = userData ? JSON.parse(userData) : null
 
+  const today = new Date();
+  const month = today.getMonth() + 1;
+  const year = today.getFullYear();
+
   const getAllAttendanceRecordList = async () => {
     try {
       setIsLoading(true);
       const response = await attendanceEmployeeByUserId({
         userId: user?.id,
-        month: 5,
-        year: 2026,
+        month,
+        year
       });
 
       console.log("Attendance Record:", response);

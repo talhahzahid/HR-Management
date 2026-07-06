@@ -29,7 +29,7 @@ const Page = () => {
         try {
             const result = await login(data);
             if (result?.code === "AMS_SUCCESS_00") {
-                toast.success(result?.message || 'Login Successfully')
+                toast.success('Login Successfully')
                 localStorage.setItem(
                     "user",
                     JSON.stringify({
@@ -37,6 +37,7 @@ const Page = () => {
                         name: result.responseData?.name,
                         email: result.responseData?.email,
                         token: result.responseData?.token,
+                        designation: result.responseData?.designation,
                     })
                 );
 

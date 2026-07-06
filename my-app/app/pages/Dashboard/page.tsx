@@ -322,7 +322,7 @@ export default function Page() {
               </h2>
 
               <div className="bg-blue-600 text-[10px] uppercase tracking-widest font-bold px-3 py-1 rounded-full inline-block">
-                {userData?.role || 'Software Engineer'}
+                {userData?.designation || ' Engineer'}
               </div>
 
               <div className="flex flex-col items-center md:items-start gap-2 mt-2 text-sm text-gray-300">

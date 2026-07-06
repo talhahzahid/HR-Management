@@ -44,7 +44,7 @@ const Card = ({
 
                     <div className="mt-3">
                         <Button className="rounded-full px-5 bg-green-700">
-                            {status}
+                            {status ? status : 'Incomplete'}
                         </Button>
                     </div>
 
