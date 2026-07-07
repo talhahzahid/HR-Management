@@ -16,10 +16,25 @@ app.use(
 );
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("hello world");
+});
+
+app.get("/health", (req, res) => {
+  res.json({
+    status: "ok",
+    databaseConfigured: Boolean(process.env.DATABASE_URL),
+  });
+});
+
 let isDbReady = false;
 
 const connect = async () => {
   if (isDbReady) return;
+
+  if (!sequelize) {
+    throw new Error("DATABASE_URL is not set in environment variables");
+  }
 
   await sequelize.authenticate();
 
@@ -31,23 +46,28 @@ const connect = async () => {
   console.log("Connected to Neon PostgreSql");
 };
 
-app.use(async (req, res, next) => {
+app.use("/api/v1", async (req, res, next) => {
   try {
     await connect();
     next();
   } catch (error) {
-    console.log("Connection Failed", error.message);
+    console.error("Database connection failed:", error.message);
     res.status(500).json({
       success: false,
       message: "Database connection failed",
+      error: error.message,
     });
   }
 });
 
 app.use("/api/v1", router);
 
-app.get("/", (req, res) => {
-  res.send("hello world");
+app.use((err, req, res, next) => {
+  console.error("Unhandled error:", err);
+  res.status(500).json({
+    success: false,
+    message: "Internal server error",
+  });
 });
 
 if (!process.env.VERCEL) {
@@ -58,7 +78,7 @@ if (!process.env.VERCEL) {
       });
     })
     .catch((error) => {
-      console.log("Connection Failed", error.message);
+      console.error("Connection Failed", error.message);
     });
 }
 
